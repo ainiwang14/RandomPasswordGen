@@ -11,7 +11,15 @@ var finalPass = [];
 
 // make button "generate password" that starts process
 
+generateBtn.addEventListener("click", writePassword);
+
 // make prompt for # of char and confirms for U/l/s/#s
+
+var userInputLength = prompt("How long would you like your password to be? please enter a number between 8 and 128");
+var userInputUpper = confirm("Would you like uppercase letters in your password?");
+var userInputLower = confirm("Would you like lowercase letters?");
+var userInputNumbers = confirm("How about numbers?");
+var userInputSpecial = confirm("And special characters?");
 
 // push the user confirm answers to be included in work array
 
@@ -43,6 +51,3 @@ function writePassword() {
     passwordText.value = password;
 
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
