@@ -25,6 +25,8 @@ var userInputSpecial = confirm("And special characters?");
 
 // use math.random and math.floor to randomize; multiply by length of total array of possible char
 
+var num = Math.floor(Math.random() * workshopArr.length) + 1;
+
 // use loop to call function number of times of user choice length of pw
 
 // lil tip from wilson:
