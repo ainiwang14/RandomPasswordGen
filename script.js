@@ -16,11 +16,9 @@ var userInputNumbers = confirm("How about numbers?");
 var userInputSpecial = confirm("And special characters?");
 
 // make button "generate password" that starts process
-
-// generateBtn.addEventListener("click", writePassword);
+var generateBtn = document.querySelector("#generate");
 
 // push the user confirm answers to be included in work array
-
 function push() {
     if (userInputUpper === true) {
         workshopArr.push(uppercase)
@@ -67,6 +65,3 @@ for (var i=0; i < userInputLength.length; i++) {
 // if (userChoiceNumber === true) {
 //   number(workshopArr);
 // };
-
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
