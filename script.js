@@ -15,10 +15,6 @@ var userInputLower = confirm("Would you like lowercase letters?");
 var userInputNumbers = confirm("How about numbers?");
 var userInputSpecial = confirm("And special characters?");
 
-// make button "generate password" that starts process
-var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener('click', writePassword);
-
 // push the user confirm answers to be included in work array
 function push() {
     if (userInputUpper) {
@@ -41,15 +37,6 @@ function push() {
     }
 }
 
-// Write password to the #password input
-function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-    push();
-
-    passwordText.value = password;
-}
-
 // use math.random and math.floor to randomize; multiply by length of total array of possible char
 // use loop to call function number of times of user choice length of pw
 for (var i=0; i < userInputLength.length; i++) {
@@ -58,3 +45,16 @@ for (var i=0; i < userInputLength.length; i++) {
         finalPass.push(randomChar)
     }
 }
+
+// Write password to the #password input
+function writePassword() {
+    push();
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
+}
+
+// make button "generate password" that starts process
+var generateBtn = document.querySelector("#generate");
+generateBtn.addEventListener('click', writePassword());
