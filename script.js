@@ -9,10 +9,6 @@ var special = ['`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '[', 
 var workshopArr = [];
 var finalPass = [];
 
-// make button "generate password" that starts process
-
-generateBtn.addEventListener("click", writePassword);
-
 // make prompt for # of char and confirms for U/l/s/#s
 
 var userInputLength = prompt("How long would you like your password to be? please enter a number between 8 and 128");
@@ -21,7 +17,29 @@ var userInputLower = confirm("Would you like lowercase letters?");
 var userInputNumbers = confirm("How about numbers?");
 var userInputSpecial = confirm("And special characters?");
 
+// make button "generate password" that starts process
+
+generateBtn.addEventListener("click", writePassword);
+
+// Write password to the #password input
+function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
+
+}
+
 // push the user confirm answers to be included in work array
+
+workshopArr.push = [
+    {length: userInputLength};
+    {uppercase: userInputUpper};
+    {lowercase: userInputLower};
+    {numbers: userInputNumbers};
+    {special: userInputSpecial}
+
+]
 
 // use math.random and math.floor to randomize; multiply by length of total array of possible char
 
@@ -44,12 +62,3 @@ var num = Math.floor(Math.random() * workshopArr.length) + 1;
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-
-    passwordText.value = password;
-
-}
