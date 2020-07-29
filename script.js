@@ -19,6 +19,26 @@ var userInputSpecial = confirm("And special characters?");
 
 // generateBtn.addEventListener("click", writePassword);
 
+// push the user confirm answers to be included in work array
+
+function push() {
+    if (userInputUpper === true) {
+        workshopArr.push(uppercase)
+    };
+    if (userInputLower === true) {
+        workshopArr.push(lowercase)
+    };
+    if (userInputNumbers === true) {
+        workshopArr.push(numbers)
+    };
+    if (userInputSpecial === true) {
+        workshopArr.push(special)
+    };
+    if (userInputUpper === false && userInputLower === false && userInputNumbers === false && userInputSpecial === false) {
+        alert("you have to pick something")
+    }
+}
+
 // Write password to the #password input
 function writePassword() {
 
@@ -27,42 +47,13 @@ var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
 
-}
-
-// push the user confirm answers to be included in work array
-
-function push(array) {
-    if (userInputUpper === true) {
-        workshopArr.push(uppercase)
-    };
-    else if (userInputLower === true) {
-        workshopArr.push(lowercase)
-    }
-    else if (userInputNumbers === true) {
-        workshopArr.push(numbers)
-    }
-    else if (userInputSpecial === true) {
-        workshopArr.push(special)
-    }
-    else (userInputUpper === false && userInputLower === false && userInputNumbers === false && userInputSpecial === false && ) {
-        alert("you have to pick something")
-    }
-}
-
-workshopArr.push = [
-    {length: userInputLength},
-    {uppercase: userInputUpper},
-    {lowercase: userInputLower},
-    {numbers: userInputNumbers},
-    {special: userInputSpecial},
-
-]
-
 // use math.random and math.floor to randomize; multiply by length of total array of possible char
-
-var num = Math.floor(Math.random() * workshopArr.length) + 1;
-
 // use loop to call function number of times of user choice length of pw
+for (var i=0; i < userInputLength.length; i++) {
+    function generatePassword() {
+    var randomChar = Math.floor(Math.random() * workshopArr.length);
+    finalPass.push(randomChar)
+}
 
 // lil tip from wilson:
 // function number(arr) {
