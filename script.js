@@ -17,31 +17,35 @@ var userInputSpecial = confirm("And special characters?");
 
 // make button "generate password" that starts process
 var generateBtn = document.querySelector("#generate");
+generateBtn.addEventListener('click', writePassword);
 
 // push the user confirm answers to be included in work array
 function push() {
-    if (userInputUpper === true) {
+    if (userInputUpper) {
         workshopArr.push(uppercase)
     };
-    if (userInputLower === true) {
+    if (userInputLower) {
         workshopArr.push(lowercase)
     };
-    if (userInputNumbers === true) {
+    if (userInputNumbers) {
         workshopArr.push(numbers)
     };
-    if (userInputSpecial === true) {
+    if (userInputSpecial) {
         workshopArr.push(special)
     };
-    if (userInputUpper === false && userInputLower === false && userInputNumbers === false && userInputSpecial === false) {
+    if (!userInputUpper && !userInputLower && !userInputNumbers && !userInputSpecial) {
         alert("you have to pick something")
+    }
+    if (!userInputLength) {
+        alert("Ok maybe later")
     }
 }
 
 // Write password to the #password input
 function writePassword() {
-
-var password = generatePassword();
-var passwordText = document.querySelector("#password");
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+    push();
 
     passwordText.value = password;
 }
