@@ -44,24 +44,13 @@ var password = generatePassword();
 var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
+}
 
 // use math.random and math.floor to randomize; multiply by length of total array of possible char
 // use loop to call function number of times of user choice length of pw
 for (var i=0; i < userInputLength.length; i++) {
     function generatePassword() {
-    var randomChar = Math.floor(Math.random() * workshopArr.length);
-    finalPass.push(randomChar)
+        var randomChar = Math.floor(Math.random() * workshopArr.length);
+        finalPass.push(randomChar)
+    }
 }
-
-// lil tip from wilson:
-// function number(arr) {
-//      for(var i = 0; i < numberArr.length; i++) {
-//          arr.push(numberArr[i]);
-//      };
-//      return arr
-//  };
-// you call that function in your logic I.E.
-// var workshopArr = [];
-// if (userChoiceNumber === true) {
-//   number(workshopArr);
-// };
