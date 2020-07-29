@@ -12,8 +12,6 @@ var userInputLower
 var userInputNumbers
 var userInputSpecial
 
-var randomChar
-
 function passwordOptions() {
 // make prompt for # of char and confirms for U/l/s/#s
     userInputLength = parseInt(prompt("How long would you like your password to be? Please enter a number between 8 and 128"));
@@ -41,7 +39,19 @@ function passwordOptions() {
     return passwordOptions;
 }
 
-// // push the user confirm answers to be included in work array
+// // use math.random and math.floor to randomize; multiply by length of total array of possible char
+// // use loop to call function number of times of user choice length of pw
+function generatePassword(){
+    for (var i = 0; i < (userInputLength); i++) {
+        randomChar = Math.floor(Math.random() * workshopArr.length);
+        finalPass.push(randomChar)
+    }
+    finalPass.join()
+    var passwordText = document.querySelector("#password");
+    passwordText.textContent = finalPass;
+}
+
+// push the user confirm answers to be included in work array
 function toWorkingArr() {
     if (userInputUpper) {
         workshopArr.concat[uppercase]
@@ -59,22 +69,6 @@ function toWorkingArr() {
 
 workshopArr = toWorkingArr(passwordOptions)
 
-// // use math.random and math.floor to randomize; multiply by length of total array of possible char
-// // use loop to call function number of times of user choice length of pw
-function generatePassword(){
-    for (var i = 0; i < (userInputLength); i++) {
-        randomChar = Math.floor(Math.random() * workshopArr.length);
-    }
-}
-
-finalPass.push(randomChar);
-
-// // Write password to the #password input
-function writePassword() {
-    var passwordText = document.querySelector("#password");
-    passwordText.textContent = finalPass;
-}
-
 // // make button "generate password" that starts process
 var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener('click', writePassword());
+generateBtn.addEventListener('click', generatePassword());
