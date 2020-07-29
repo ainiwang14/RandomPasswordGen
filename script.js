@@ -1,7 +1,6 @@
 // javascript baby!
 
 // make arrays for upper, lower, special, number char, work array, and final password
-
 var uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -10,8 +9,7 @@ var workshopArr = [];
 var finalPass = [];
 
 // make prompt for # of char and confirms for U/l/s/#s
-
-var userInputLength = prompt("How long would you like your password to be? please enter a number between 8 and 128");
+var userInputLength = prompt("How long would you like your password to be? Please enter a number between 8 and 128");
 var userInputUpper = confirm("Would you like uppercase letters in your password?");
 var userInputLower = confirm("Would you like lowercase letters?");
 var userInputNumbers = confirm("How about numbers?");
@@ -19,12 +17,13 @@ var userInputSpecial = confirm("And special characters?");
 
 // make button "generate password" that starts process
 
-generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
 function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
+
+var password = generatePassword();
+var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
 
@@ -32,12 +31,30 @@ function writePassword() {
 
 // push the user confirm answers to be included in work array
 
+function push(array) {
+    if (userInputUpper === true) {
+        workshopArr.push(uppercase)
+    };
+    else if (userInputLower === true) {
+        workshopArr.push(lowercase)
+    }
+    else if (userInputNumbers === true) {
+        workshopArr.push(numbers)
+    }
+    else if (userInputSpecial === true) {
+        workshopArr.push(special)
+    }
+    else (userInputUpper === false && userInputLower === false && userInputNumbers === false && userInputSpecial === false && ) {
+        alert("you have to pick something")
+    }
+}
+
 workshopArr.push = [
-    {length: userInputLength};
-    {uppercase: userInputUpper};
-    {lowercase: userInputLower};
-    {numbers: userInputNumbers};
-    {special: userInputSpecial}
+    {length: userInputLength},
+    {uppercase: userInputUpper},
+    {lowercase: userInputLower},
+    {numbers: userInputNumbers},
+    {special: userInputSpecial},
 
 ]
 
