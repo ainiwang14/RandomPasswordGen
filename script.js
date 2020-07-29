@@ -28,51 +28,52 @@ function passwordOptions() {
         return;
     }
     
-    // var passwordOptions = {
-    //     userInputLength: userInputLength,
-    //     userInputUpper: userInputUpper,
-    //     userInputLower: userInputLower,
-    //     userInputNumbers: userInputNumbers,
-    //     userInputSpecial: userInputSpecial
-    // };
-    
-    toWorkingArr(userInputUpper, userInputLower, userInputNumbers, userInputSpecial)
-}
-
-// // use math.random and math.floor to randomize; multiply by length of total array of possible char
-// // use loop to call function number of times of user choice length of pw
-function generatePassword(){
-    for (var i = 0; i < (userInputLength); i++) {
-        randomChar = workshopArr[Math.floor(Math.random() * workshopArr.length)];
-        finalPass.push(randomChar)
-    }
-    finalPass.join()
-    var passwordText = document.querySelector("#password");
-    passwordText.textContent = finalPass;
+    toWorkshopArr(userInputUpper, userInputLower, userInputNumbers, userInputSpecial)
 }
 
 // push the user confirm answers to be included in work array
-function toWorkingArr(userInputUpper, userInputLower, userInputNumbers, userInputSpecial) {
+// use for loop to go through and push each string in the array individually
+function toWorkshopArr(userInputUpper, userInputLower, userInputNumbers, userInputSpecial) {
     if (userInputUpper) {
         for(var i = 0; i < uppercase.length; i++) {
             workshopArr.push(uppercase[i])
         }
     };
     if (userInputLower) {
-        //workshopArr.concat[lowercase]
+        for(var i = 0; i < lowercase.length; i++) {
+            workshopArr.push(lowercase[i])
+        }
     };
     if (userInputNumbers) {
-        //workshopArr.concat[numbers]
+        for(var i = 0; i < numbers.length; i++) {
+            workshopArr.push(numbers[i])
+        }
     };
     if (userInputSpecial) {
-        //workshopArr.concat[special]
+        for(var i = 0; i < special.length; i++) {
+            workshopArr.push(special[i])
+        }
     };
     console.log(workshopArr);
     return workshopArr
 }
 
-// workshopArr = toWorkingArr(passwordOptions)
+// // use math.random and math.floor to randomize; multiply by length of total array of possible char
+// // use loop to call function number of times of user choice length of pw
+// Math.floor(Math.random() * workshopArr.length) is just giving you a random index not the item in the array hence workshopArr[Math.floor(Math.random() * workshopArr.length)]
+function generatePassword(){
+    for (var i = 0; i < (userInputLength); i++) {
+        randomChar = workshopArr[Math.floor(Math.random() * workshopArr.length)];
+        finalPass.push(randomChar)
+    }
+    return finalPass.join('')
+}
 
-// // make button "generate password" that starts process
+function writePassword() {
+    var passwordText = document.querySelector("#password");
+    passwordText.textContent = finalPass;
+}
+
+// // // make button "generate password" that starts process
 var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener('click', passwordOptions);
+generateBtn.addEventListener('click', passwordOptions)
