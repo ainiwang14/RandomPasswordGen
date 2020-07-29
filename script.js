@@ -11,49 +11,32 @@ var finalPass = [];
 function passwordOptions() {
 // make prompt for # of char and confirms for U/l/s/#s
     var userInputLength = parseInt(prompt("How long would you like your password to be? Please enter a number between 8 and 128"));
-    
-    if (!userInputLength) {
-        alert("Ok maybe later");
-        return;
-    }
-    
+        if (!userInputLength) {
+            alert("Ok maybe later");
+            return;
+        }
     var userInputUpper = confirm("Would you like uppercase letters in your password?");
     var userInputLower = confirm("Would you like lowercase letters?");
     var userInputNumbers = confirm("How about numbers?");
     var userInputSpecial = confirm("And special characters?");
+        if (!userInputUpper && !userInputLower && !userInputNumbers && !userInputSpecial) {
+            alert("you have to pick something");
+            return;
+        }
     
-    if (!userInputUpper && !userInputLower && !userInputNumbers && !userInputSpecial) {
-        alert("you have to pick something");
-        return;
-    }
-
     var passwordOptions = {
-        length: userInputLength,
-        uppercase: userInputUpper,
-        lower: userInputLower,
-        numbers: userInputNumbers,
-        special: userInputSpecial,
-    };
+        length: userInputLength;
+        uppercase: userInputUpper;
+        lowercase: userInputLower;
+        numbers: userInputNumbers;
+        special: userInputSpecial;
+    }
+    
     return passwordOptions;
 }
 
-// use math.random and math.floor to randomize; multiply by length of total array of possible char
-// use loop to call function number of times of user choice length of pw
-for (var i = 0; i < userInputLength; i++) {
-    var randomChar = Math.floor(Math.random() * workshopArr.length);
-    finalPass.push(randomChar);
-    finalPass.concat();
-}
-
-// Write password to the #password input
-function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-    passwordText.value = password;
-}
-
 // push the user confirm answers to be included in work array
-function pushToWorkingArr();
+function pushToWorkingArr() {
     if (userInputUpper) {
         workshopArr.push[uppercase]
     };
@@ -66,6 +49,21 @@ function pushToWorkingArr();
     if (userInputSpecial) {
         workshopArr.push[special]
     };
+}
+
+// use math.random and math.floor to randomize; multiply by length of total array of possible char
+// use loop to call function number of times of user choice length of pw
+for (var i = 0; i < (userInputLength + 1); i++) {
+    var randomChar = Math.floor(Math.random() * workshopArr.length);
+    finalPass.push(randomChar);
+}
+
+// Write password to the #password input
+function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+}
 
 // make button "generate password" that starts process
 var generateBtn = document.querySelector("#generate");
