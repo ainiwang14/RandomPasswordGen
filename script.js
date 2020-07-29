@@ -65,6 +65,7 @@ function toWorkingArr() {
     if (userInputSpecial) {
         workshopArr.concat[special]
     };
+    return workshopArr
 }
 
 workshopArr = toWorkingArr(passwordOptions)
