@@ -28,22 +28,22 @@ function passwordOptions() {
         return;
     }
     
-    var passwordOptions = {
-        userInputLength: userInputLength,
-        userInputUpper: userInputUpper,
-        userInputLower: userInputLower,
-        userInputNumbers: userInputNumbers,
-        userInputSpecial: userInputSpecial
-    };
+    // var passwordOptions = {
+    //     userInputLength: userInputLength,
+    //     userInputUpper: userInputUpper,
+    //     userInputLower: userInputLower,
+    //     userInputNumbers: userInputNumbers,
+    //     userInputSpecial: userInputSpecial
+    // };
     
-    return passwordOptions;
+    toWorkingArr(userInputUpper, userInputLower, userInputNumbers, userInputSpecial)
 }
 
 // // use math.random and math.floor to randomize; multiply by length of total array of possible char
 // // use loop to call function number of times of user choice length of pw
 function generatePassword(){
     for (var i = 0; i < (userInputLength); i++) {
-        randomChar = Math.floor(Math.random() * workshopArr.length);
+        randomChar = workshopArr[Math.floor(Math.random() * workshopArr.length)];
         finalPass.push(randomChar)
     }
     finalPass.join()
@@ -52,24 +52,27 @@ function generatePassword(){
 }
 
 // push the user confirm answers to be included in work array
-function toWorkingArr() {
+function toWorkingArr(userInputUpper, userInputLower, userInputNumbers, userInputSpecial) {
     if (userInputUpper) {
-        workshopArr.concat[uppercase]
+        for(var i = 0; i < uppercase.length; i++) {
+            workshopArr.push(uppercase[i])
+        }
     };
     if (userInputLower) {
-        workshopArr.concat[lowercase]
+        //workshopArr.concat[lowercase]
     };
     if (userInputNumbers) {
-        workshopArr.concat[numbers]
+        //workshopArr.concat[numbers]
     };
     if (userInputSpecial) {
-        workshopArr.concat[special]
+        //workshopArr.concat[special]
     };
+    console.log(workshopArr);
     return workshopArr
 }
 
-workshopArr = toWorkingArr(passwordOptions)
+// workshopArr = toWorkingArr(passwordOptions)
 
 // // make button "generate password" that starts process
 var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener('click', generatePassword());
+generateBtn.addEventListener('click', passwordOptions);
